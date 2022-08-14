@@ -18,6 +18,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 
+// health check ALB
+app.get('/health-check', (request, response) => { res.status(200).end("")})
+
 app.use("/api", authRoutes);
 app.use("/api", userRoutes);
 
